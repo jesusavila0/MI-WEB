@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Primer Web</title>
+    <!-- Código Css -->
+    <link rel="stylesheet" href="web.css">
+    <link rel="stylesheet" href="inicio.html">
+    
+</head>
+<body>
+
+    <nav class="menu-navegacion">
+        <ul class="nav-lista">
+            <li class="inicio-izqarr"><a href="inicio.html">Inicio</a></li>
+            <li class="sobre-izqaba"><a href="sobremi.html">Sobre mi</a></li>
+            <!-- ---------------------------- -->
+            <li class="logo logo-movil">
+                <img src="logo.png" alt="Logo" width="60">
+            </li>  
+            <!-- ---------------------------- -->
+            <li class="redes-derecha"><a href="https://www.youtube.com/@xxtheseedycrewxx7580">YouTube</a></li>
+            <li class="redes-derecha"><a href="https://x.com/Jesusavi_0">Twitter</a></li>
+            <li class="redes-derecha"><a href="https://www.instagram.com/jesusavila_0/">Instagram</a></li>
+        </ul>
+    </nav>
+          <h1 class="clase1">Mi Primera Web</h1> 
+    <!-- <div class="contenedor-sobremi" id="sobre-mi">
+
+        <img src="Micara.JPG" alt="Foto de Jesús Ávila" class="foto-derecha">
+
+            <p class="palabraSobremi">Sobre mi</p>
+            <p class="textosobremi">
+                Hola, soy Jesús Ávila Ventosa, tengo 25 años y soy estudiante de desarrollo de aplicaciones web. 
+                Estoy haciendo mi primera web y esto es una prueba de ello. Me gusta mucho el tema de los ordenadores y la programación.
+            </p>
+            <p class="textosobremi-pegado">
+                Aquí abajo os dejo una lista sobre lo que me gusta hacer:
+            </p>
+           
+            <ul class="bordes-lista">
+            <li>Me gusta programar.</li>
+            <li>Me gusta aprender cosas nuevas.</li>
+            <li>Me gustan los videojuegos.</li>
+            <li>Me gusta ir a la playa.</li>
+            <li>Me gusta el mar.</li>
+            </ul>   
+
+    </div> -->
+           
+</body>
+</html>

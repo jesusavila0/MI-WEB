@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Primera Web</title>
+    <!-- Código Css -->
+    <link rel="stylesheet" href="web.css">
+    <link rel="stylesheet" href="inicio.html">
+    <link rel="stylesheet" href="diariodecadiz.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+</head>
+<body>
+    <nav class="menu-navegacion">
+        <ul class="nav-lista">
+            <li class="inicio-izqarr"><a href="inicio.html">Inicio</a></li>
+            <li class="sobre-izqaba"><a href="proyectos.html">Proyectos</a></li>
+            <!-- ---------------------------- -->
+            <li class="logo logo-movil">
+                <a href="kira.html">   
+                <img src="fotosmiprimeraweb/logo.png" alt="Logo" width="60">        
+                </a>    
+            </li>  
+            <!-- ---------------------------- -->
+            <li class="redes-derecha"><a href="https://www.youtube.com/@xxtheseedycrewxx7580">YouTube <img src="fotosmiprimeraweb/yt.svg" alt="YouTube" width="20"></a></li>
+            <li class="redes-derecha"><a href="https://x.com/Jesusavi_0">Twitter <img src="fotosmiprimeraweb/twtt.svg" alt="Twitter" width="20"></a></li>
+            <li class="redes-derecha"><a href="https://www.instagram.com/jesusavila_0/">Instagram <img src="fotosmiprimeraweb/insta.svg" alt="Instagram" width="20"></a></li>
+        </ul>
+    </nav> 
+
+    <header class="arriba-nav">
+        <div class="barra-superior">
+            <div class="seccion-izquierda fechita ">
+                <span class="icono-menu" onclick="abrirMenu()">&#9776;</span>
+                <span class="fecha-cabecera" id="fecha-dinamica"></span>
+            </div>
+        </div>
+
+        <a href="replica-diariocadiz.html" class="enlace-logo">
+            <h1 class="logo-diario">DIARIO DE CADIZ</h1>
+        </a>
+
+        <div id="menu-lateral" class="menu-oculto">
+            <span class="boton-cerrar" onclick="abrirMenu()">&times;</span>
+            <a class="diariodecadizmenu">DIARIO DE CADIZ</a>
+            <a class="busc-negrita">Cádiz</a>
+            <a class="busc">Noticias Cádiz</a>
+            <a class="busc">Cadizfornia</a>
+            <a class="busc">Vivir en Cádiz</a>
+            <a class="busc">Carnaval</a>
+            <a class="busc">Semana Santa</a>
+
+            <hr class="divisor-menu"> <a class="busc-negrita">Provincia</a>
+            <a class="busc">Noticias Provincia</a>
+            <a class="busc">Chiclana</a>
+            <a class="busc">El Puerto</a>
+            <a class="busc">San Fernando</a>
+            <a class="busc">Puerto Real</a>
+
+            <hr class="divisor-menu"> <a class="busc-negrita">Sociedad</a>
+            <a class="busc">Noticias Sociedad</a>
+            <a class="busc">Salud</a>
+            <a class="busc">Medio Ambiente</a>
+            <a class="busc">Motor</a>
+            <a class="busc">De Compras</a>
+
+        </div>
+    </header>
+
+
+
+
+                <!-- Separación entre apartados -->
+    <main class="portada-container">
+        <section class="noticia-principal">
+            <div class="foto-principal">
+                <img src="fotosmiprimeraweb/noticiaBruja.png" alt="Gran Noticia">
+            </div>
+            <div class="texto-principal">
+                <h1>Investigación Especial: La torre de la bruja</h1>
+                <p class="Localización">Obsilion</p>
+                <p class="infonoticia">Se confirma el hallazgo de un asentamiento maldito en las afueras de la ciudad</p>
+            </div>
+
+            <hr class="separador">
+
+            <div class="noticia-2">
+                <h2 class="h2nomargin">El centro de salud de Camposoto empezará a funcionar el próximo lunes</h2>
+                <p class="Localización2">Cádiz</p>
+            </div>
+        </section>
+
+        <aside class="columna-derecha">
+            <article class="item-lateral">
+                <div class="foto-lateral">
+                    <img src="fotosmiprimeraweb/noticiasacrificio.png" alt="Sacrificio">
+                </div>
+                <div class="info-lateral">
+                    <h3>Se ha encontrado un sacrificio a las afueras de la casa maldita</h3>
+                    <p class="Localización">Obsilion</p>
+                </div>
+            </article>
+
+            <article class="item-lateral">
+                <div class="foto-lateral">
+                    <img src="fotosmiprimeraweb/noticia3.png" alt="Colegios">
+                </div>
+                <div class="info-lateral">
+                    <h3>Los colegios de Cádiz celebran los 214 años de la "Constitución influencer"</h3>
+                    <p class="Localización">Cádiz</p>
+                </div>
+            </article>
+
+            <article class="item-lateral">
+                <div class="foto-lateral">
+                    <img src="fotosmiprimeraweb/noticia4.png" alt="Crimen">
+                </div>
+                <div class="info-lateral">
+                    <h3>La víctima fue estrangulada por el detenido tras intentar escapar</h3>
+                    <p class="Localización">Cádiz</p>
+                    <p class="infonoticia">Cuatro crímenes en El Puerto en poco mas de dos años</p>
+                </div>
+            </article>
+        
+            <a href="noticiacadiz.html" class="enlace-noticia-lateral">
+                <article class="item-lateral">
+                    <div class="foto-lateral">
+                        <img src="fotosmiprimeraweb/noticia5.jpg" alt="CadizCF">
+                    </div>
+                    <div class="info-lateral">
+                        <h3>El Cádiz CF tiene la posibilidad de dar un gran paso en su objetivo"</h3>
+                        <p class="Localización">Cádiz C.F.</p>
+                    </div>
+                </article>
+            </a>
+        </aside>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </main>
+
+
+
+
+
+
+    
+
+    <script>
+        const opciones = { weekday: 'long', day: 'numeric', month: 'short', year: 'numeric' };
+        let fechaHoy = new Date().toLocaleDateString('es-ES', opciones).replace('.', '');
+        
+        fechaHoy = fechaHoy.charAt(0).toUpperCase() + fechaHoy.slice(1);
+        fechaHoy = fechaHoy.replace(/de ([a-z])/, (match, p1) => "de " + p1.toUpperCase());
+        document.getElementById('fecha-dinamica').textContent = fechaHoy;
+    </script>   
+
+    <script src="diariodecadiz.js"></script>
+</body>
+
+</html>

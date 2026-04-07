@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Primera Web</title>
+    <!-- Código Css -->
+    <link rel="stylesheet" href="web.css">
+    <link rel="stylesheet" href="inicio.html">
+
+
+<head>
+<body>
+
+
+    <nav class="menu-navegacion">
+        <ul class="nav-lista">
+            <li class="inicio-izqarr"><a href="inicio.html">Inicio</a></li>
+            <li class="sobre-izqaba"><a href="proyectos.html">Proyectos</a></li>
+            <!-- ---------------------------- -->
+            <li class="logo logo-movil">
+                <a href="kira.html">   
+                <img src="fotosmiprimeraweb/logo.png" alt="Logo" width="60">        
+                </a>    
+            </li>  
+            <!-- ---------------------------- -->
+            <li class="redes-derecha"><a href="https://www.youtube.com/@xxtheseedycrewxx7580">YouTube <img src="fotosmiprimeraweb/yt.svg" alt="YouTube" width="20"></a></li>
+            <li class="redes-derecha"><a href="https://x.com/Jesusavi_0">Twitter <img src="fotosmiprimeraweb/twtt.svg" alt="Twitter" width="20"></a></li>
+            <li class="redes-derecha"><a href="https://www.instagram.com/jesusavila_0/">Instagram <img src="fotosmiprimeraweb/insta.svg" alt="Instagram" width="20"></a></li>
+        </ul>
+    </nav>
+
+    <div class="fila-proyectos">
+        <div class="foto-proy">
+            <img src="fotosmiprimeraweb/diario.JPG" alt="Diario Izq">
+            <p>Previsualización del Diario De Cádiz</p>
+        </div>
+
+        <!--  -->
+        <div class="contenedor-proyectos">
+            <h1 class="clase2">DIARIO DE CÁDIZ</h1>
+            <p class="clase2">Recreación visual del periódico digital más importante de la provincia de Cádiz.</p>
+            <p class="clase2">Pulsa en el siguiente botón.</p>
+            <a href="replica-diariocadiz.html" class="enlace-cuadrado">
+                <div class="cuadro-diario">Diario de Cádiz</div>
+            </a>   
+        </div>
+
+        <!--  -->
+        <div class="foto-proy">
+            <img src="fotosmiprimeraweb/NOTICIA-DENTRO.JPG" alt="Noticia Drcha">
+            <p>Previsualización de Noticia</p>
+        </div>
+    </div>
+    
+<div id="lightbox-contenedor" class="lightbox-oculto">
+    <span class="cerrar-lightbox">&times;</span>
+    <img id="imagen-ampliada" src="" alt="Imagen Grande">
+</div>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const fotos = document.querySelectorAll('.foto-proy img');
+        const lightbox = document.getElementById('lightbox-contenedor');
+        const imgAmpliada = document.getElementById('imagen-ampliada');
+        const botonCerrar = document.querySelector('.cerrar-lightbox');
+
+        // Al hacer clic en cualquier foto de proyecto
+        fotos.forEach(foto => {
+            foto.addEventListener('click', () => {
+                const rutaImagen = foto.src; // Coge la ruta de la foto pequeña
+                imgAmpliada.src = rutaImagen; // La pone en la grande
+                lightbox.classList.remove('lightbox-oculto');
+                lightbox.classList.add('lightbox-visible');
+            });
+        });
+
+        // Al hacer clic en la (X) o fuera de la imagen
+        function cerrar() {
+            lightbox.classList.remove('lightbox-visible');
+            lightbox.classList.add('lightbox-oculto');
+        }
+
+        botonCerrar.addEventListener('click', cerrar);
+        
+        // También cierra si haces clic en el fondo oscuro
+        lightbox.addEventListener('click', (e) => {
+            if (e.target !== imgAmpliada) {
+                cerrar();
+            }
+        });
+
+        // Cierra con la tecla Escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && lightbox.classList.contains('lightbox-visible')) {
+                cerrar();
+            }
+        });
+    });
+</script>
+</body>
+
+</html>

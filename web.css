@@ -1,0 +1,457 @@
+@charset "UTF-8";
+/* CSS Document */
+
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    padding-top: 120px !important;
+}
+
+.clase1 {
+    font-size: 50px;
+    text-align: center;
+}
+
+
+.contenedor-sobremi {
+    border: 2px solid #000000;
+    padding: 25px;
+    border-radius: 10px;
+    margin: 20px auto;
+    max-width: 800px;
+    background-color: #b6b5b5;
+    overflow: hidden;
+    margin-top: 100px !important;
+    margin-bottom: 50px;
+    box-shadow: 20px 20px 8px rgba(0, 0, 0, 0.2);
+}
+
+.palabraSobremi {
+    color: #000000;
+    font-size: 30px;
+    text-align: left;
+    margin-top: 5px;
+    margin-left: 10px;
+    margin-bottom: 10px !important;
+}
+
+.textosobremi { 
+    margin-top: 10px !important;
+    margin: 50px;
+    margin-bottom: 0px !important;
+    text-align: justify;
+}
+
+.bordes-lista {
+    list-style-position: inside; 
+    margin-top: 15px; 
+    margin: 10px;
+    text-align: justify; 
+}
+
+
+.textosobremi-pegado { 
+    margin-top: 5px !important;
+    margin: 50px;
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+.foto-derecha {
+    float: right;
+    width: 180px;
+    height: auto;
+    margin: 10px auto;
+    border-radius: 10px;
+    border: 2px solid #000000;  /* Para quitar o poner el borde a la foto */
+    margin-left: 30px;
+}
+
+
+.menu-navegacion {
+    background-color: #333;
+    padding: 15px 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.menu-navegacion ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+
+}
+
+.menu-navegacion li {
+    margin: 0 20px;
+}
+
+.menu-navegacion a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+.menu-navegacion a:hover {
+    color: #3498db;  /* Cambia el color al pasar el mouse */
+}
+
+.redes-derecha >a {
+    display: flex;
+    gap: 4px;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.portada {
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+
+.portada h1 {
+    font-size: 3rem;
+    color: #333;
+}
+
+.logo {
+    order: -1;
+}
+
+.contenedor-galeria {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.foto-kira{
+    height: 250px;
+    width: auto;
+    border-radius: 20px;
+    border: 2px solid #000000;
+    margin: 50px;
+    display: inline-block;
+    transition: transform 0.3s;
+    position: relative;
+    top: 60px;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.foto-kira:hover {
+    transform: scale(1.20);
+    border-color: #3498db !important;
+    cursor: pointer;
+}
+
+.contenedor-proyectos {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    min-width: 300px;
+}
+
+.clase2 {
+    text-align: center;
+}
+
+.cuadro-diario {
+    width: 150px;
+    height: 10px;
+    background-color: #333;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 10px;
+    font-family: arial black, sans-serif;
+    transition: transform 0.3s ease background-color 0.3s ease;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.cuadro-diario:hover {
+    transform: scale(1.05);
+    background-color: #085cbd;
+    cursor: pointer;
+}
+
+.fila-proyectos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 200px;
+    max-width: 900px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+.foto-proy {
+    text-align: center;
+    flex: 0 0 200px;
+}
+
+.foto-proy img {
+    width: 450px !important;
+    height: 250px !important;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    display: block;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.foto-proy img:hover {
+    transform: translateY(-10px); /* Sube un poquito */
+    filter: brightness(1.1);      /* Se ilumina */
+    box-shadow: 0 15px 30px rgba(0,0,0,0.3); /* Sombra más profunda */
+}
+
+.foto-proy p {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+}
+
+#lightbox-contenedor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    /* QUITAMOS EL BLUR DE AQUÍ Y USAMOS UN COLOR SÓLIDO MÁS OSCURO */
+    background-color: rgba(0, 0, 0, 0.85); 
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    
+    /* Eliminamos la transición de blur que es lo que laguea */
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+.lightbox-oculto {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.lightbox-visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+#imagen-ampliada {
+    max-width: 90%;  /* No ocupa más del 90% del ancho de la pantalla */
+    max-height: 85%; /* No ocupa más del 85% del alto */
+    object-fit: contain; /* Mantiene la proporción sin recortar NADA */
+    border-radius: 15px;
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.2); /* Un aura suave blanca */
+    border: 2px solid rgba(255, 255, 255, 0.8);  /* Marco fino y elegante */
+    
+    /* Animación de zoom al aparecer */
+    transform: scale(0.8);
+    transition: transform 0.3s ease;
+    will-change: transform;
+}
+
+.lightbox-visible #imagen-ampliada {
+    transform: scale(1); /* Vuelve a su tamaño al hacerse visible */
+}
+
+/* El botón de cerrar (X) */
+.cerrar-lightbox {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    color: white;
+    font-size: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.cerrar-lightbox:hover {
+    color: #ff4d4d; /* Color rojo al pasar el ratón */
+}
+
+
+
+
+
+
+
+
+
+
+
+.foto-kira, .contenedor-galeria, .foto-proy img, #imagen-ampliada {
+    -webkit-tap-highlight-color: rgba(0,0,0,0) !important;
+    -webkit-tap-highlight-color: transparent !important;
+    -webkit-user-select: none !important;
+    user-select: none !important;
+    outline: none !important;
+    -webkit-touch-callout: none !important;
+}
+
+@media (min-width: 901px) {
+    .foto-kira:hover {
+        transform: scale(1.20) !important;
+        border-color: #3498db !important;
+    }
+}
+
+@media (max-width: 900px) {
+    .nav-lista {
+        display: flex;
+        flex-direction: column;
+        align-items: end !important;
+        gap: 10px;
+        padding-right: 20px;
+    }
+
+    .foto-derecha {
+        float: none;
+        display: block;
+        margin: 0 auto 20px auto;
+        width: 80%;
+    }
+
+    .contenedor-sobremi {
+        padding: 15px;
+    }
+    
+    .inicio-izqarr {
+        float: left !important;
+        position: absolute;
+        left: 40px;
+        top: 20px;
+    }
+    
+    .sobre-izqaba {
+        float: left !important;
+        position: absolute;
+        left: 38px;
+        top: 50px;
+    }
+
+    .redes-derecha {
+        margin-right: 50px !important;
+    }
+
+    .portada-redes >p {
+        margin: 20px !important;
+    }
+
+    .logo-movil {
+        display: block !important;
+        position: absolute;
+        left: 45%;
+        transform: translate(-50%, -50%);
+        margin-top: 50px !important;
+    }
+    
+    .portada {
+        height: auto;
+        padding: 100px 20px;
+        padding-top: 120px;
+    }
+    
+    .foto-kira {
+        max-height: 250px;
+        margin: 5px auto;
+        top: 0;
+        display: block;
+        margin-top: 125px !important;
+        transition: transform 0.3s ease;
+        touch-action: manipulation;
+    }
+
+    .foto-kira:active {
+        border-color: #3498db !important; 
+        transform: scale(0.98) !important; /* Pequeño hundimiento */
+        transition: 0s !important;/
+    }
+    
+    .foto-kira:hover {
+        transform: scale(1);
+        border-color: #000000;
+    }
+
+    .enlace-cuadrado {
+        margin-left: 20px;
+    }
+
+    .clase2 {
+        text-align: center;
+        margin-left: 30px;
+        margin-right: 30px;
+    }
+
+    .fila-proyectos {
+        flex-direction: column; /* Apila los elementos en vertical */
+        gap: 40px;              /* Espacio entre bloques verticales */
+        padding: 20px;
+        margin: 20px auto;
+    }
+
+    .foto-proy {
+        flex: 0 0 auto;         /* Deja que el alto sea automático */
+        width: 100%;            /* Ocupa todo el ancho disponible */
+    }
+
+    .foto-proy img {
+        width: 90% !important;  /* Foto casi al ancho completo */
+        max-width: 400px;       /* Pero que no se haga gigante */
+        height: auto !important; /* Mantiene la proporción real */
+        margin: 0 auto;
+    }
+
+    .contenedor-proyectos {
+        order: -1;              /* OPCIONAL: Pone el texto arriba de las fotos */
+        width: 100%;
+    }
+    
+    #imagen-ampliada {
+        max-width: 85% !important;  /* Antes estaba al 95%, con 85% dejamos más margen lateral */
+        max-height: 70% !important; /* También bajamos el alto para que no pegue arriba/abajo */
+        border-radius: 10px;        /* Bordes un pelín más redondeados */
+        border: 2px solid white;    /* Marco un poco más grueso para que resalte */
+    }
+
+    .cerrar-lightbox {
+        top: 30px;
+        right: 30px;
+        font-size: 45px;
+    }
+}
+
+

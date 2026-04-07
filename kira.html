@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Primera Web</title>
+    <!-- Código Css -->
+    <link rel="stylesheet" href="web.css">
+    <link rel="stylesheet" href="inicio.html">
+
+
+<head>
+<body>
+    <nav class="menu-navegacion">
+        <ul class="nav-lista">
+            <li class="inicio-izqarr"><a href="inicio.html">Inicio</a></li>
+            <li class="sobre-izqaba"><a href="proyectos.html">Proyectos</a></li>
+            <!-- ---------------------------- -->
+            <li class="logo logo-movil">
+                <a href="kira.html">   
+                <img src="fotosmiprimeraweb/logo.png" alt="Logo" width="60">        
+                </a>    
+            </li>  
+            <!-- ---------------------------- -->
+            <li class="redes-derecha"><a href="https://www.youtube.com/@xxtheseedycrewxx7580">YouTube <img src="fotosmiprimeraweb/yt.svg" alt="YouTube" width="20"></a></li>
+            <li class="redes-derecha"><a href="https://x.com/Jesusavi_0">Twitter <img src="fotosmiprimeraweb/twtt.svg" alt="Twitter" width="20"></a></li>
+            <li class="redes-derecha"><a href="https://www.instagram.com/jesusavila_0/">Instagram <img src="fotosmiprimeraweb/insta.svg" alt="Instagram" width="20"></a></li>
+        </ul>
+    </nav>
+    
+    <div class="contenedor-galeria">
+        <img src="fotosmiprimeraweb/KIRA.JPEG" alt="kira" class="foto-kira">
+        <img src="fotosmiprimeraweb/KIRA2.JPEG" alt="kira" class="foto-kira">
+        <img src="fotosmiprimeraweb/KIRA4.JPEG" alt="kira" class="foto-kira">
+        <img src="fotosmiprimeraweb/KIRA3.JPEG" alt="kira" class="foto-kira">
+        <img src="fotosmiprimeraweb/KIRA5.JPEG" alt="kira" class="foto-kira">
+        <img src="fotosmiprimeraweb/KIRA6.JPEG" alt="kira" class="foto-kira">
+        <img src="fotosmiprimeraweb/KIRA7.JPEG" alt="kira" class="foto-kira">
+        <img src="fotosmiprimeraweb/KIRA8.JPEG" alt="kira" class="foto-kira">
+        <img src="fotosmiprimeraweb/KIRA9.JPEG" alt="kira" class="foto-kira">
+    </div>
+       
+
+
+
+    
+<div id="lightbox-contenedor" class="lightbox-oculto">
+    <span class="cerrar-lightbox">&times;</span>
+    <img id="imagen-ampliada" src="" alt="Kira Grande">
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+    const lightbox = document.getElementById('lightbox-contenedor');
+    const imgAmpliada = document.getElementById('imagen-ampliada');
+    const botonCerrar = document.querySelector('.cerrar-lightbox');
+    const galeria = document.querySelector('.contenedor-galeria');
+
+    // IMPORTANTE: El clic lo escucha la galería entera
+    galeria.addEventListener('click', (e) => {
+        // Miramos si lo que hay justo debajo del dedo es una .foto-kira
+        if (e.target.classList.contains('foto-kira')) {
+            imgAmpliada.src = e.target.src;
+            lightbox.classList.remove('lightbox-oculto');
+            lightbox.classList.add('lightbox-visible');
+        }
+    });
+
+    const cerrar = () => {
+        lightbox.classList.remove('lightbox-visible');
+        lightbox.classList.add('lightbox-oculto');
+    };
+
+    botonCerrar.addEventListener('click', cerrar);
+    
+    // Cerrar al tocar fuera de la imagen
+    lightbox.addEventListener('click', (e) => {
+        if (e.target !== imgAmpliada) cerrar();
+    });
+});
+</script>
+</body>
+
+</html>
