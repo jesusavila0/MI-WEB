@@ -178,6 +178,19 @@ body {
     margin: 0;
 }
 
+a {
+    text-decoration: none !important;
+}
+
+.cuadro-diario, .clase1, .clase2 {
+    text-decoration: none !important;
+}
+
+a:active, a:hover, a:visited {
+    text-decoration: none !important;
+    border-bottom: none !important;
+}
+
 .info-proyecto {
     padding: 20px;
     text-align: center;
@@ -212,6 +225,10 @@ body {
 }
 
 body.body-diario {
+    padding-top: 120px !important;
+}
+
+body.body-noticia {
     padding-top: 120px !important;
 }
 
@@ -494,4 +511,139 @@ html {
     .grid-layout { grid-template-columns: 1fr; }
     .fila-proyectos-nueva { flex-direction: column; align-items: center; }
     .tarjeta-proyecto { width: 90%; }
+
+ .nav-lista {
+        display: flex;
+        flex-direction: column;
+        align-items: end !important;
+        gap: 10px;
+        padding-right: 20px;
+    }
+
+    .foto-derecha {
+        float: none;
+        display: block;
+        margin: 0 auto 20px auto;
+        width: 80%;
+    }
+
+    .contenedor-sobremi {
+        padding: 15px;
+    }
+    
+    .inicio-izqarr {
+        float: left !important;
+        position: absolute;
+        left: 40px;
+        top: 20px;
+    }
+    
+    .sobre-izqaba {
+        float: left !important;
+        position: absolute;
+        left: 38px;
+        top: 50px;
+    }
+
+    .redes-derecha {
+        margin-right: 50px !important;
+    }
+
+    .portada-redes >p {
+        margin: 20px !important;
+    }
+
+    .logo-movil {
+        display: block !important;
+        position: absolute;
+        left: 45%;
+        transform: translate(-50%, -50%);
+        margin-top: 50px !important;
+    }
+    
+    
+    .portada {
+        height: auto;
+        padding: 100px 20px;
+        padding-top: 120px;
+    }
+    
+    .foto-kira {
+        max-height: 250px;
+        margin: 5px auto;
+        top: 0;
+        display: block;
+        margin-top: 125px !important;
+        transition: transform 0.3s ease;
+        touch-action: manipulation;
+    }
+
+    .foto-kira:active {
+        border-color: #3498db !important; 
+        transform: scale(0.98) !important;
+        transition: 0s !important;/
+    }
+    
+    .foto-kira:hover {
+        transform: scale(1);
+        border-color: #000000;
+    }
+
+    .enlace-cuadrado {
+        margin-left: 20px;
+    }
+
+    .clase2 {
+        text-align: center;
+        margin-left: 10px !important;
+        margin-right: 10px !important;
+        width: auto;
+    }
+
+    .cuadro-diario {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        float: none !important;
+        margin-left: -14px !important;
+    }
+
+    .fila-proyectos {
+        flex-direction: column;
+        gap: 40px;
+        padding: 20px;
+        margin: 20px auto;
+    }
+
+    .foto-proy {
+        flex: 0 0 auto;
+        width: 100%;
+    }
+
+    .foto-proy img {
+        width: 90% !important;
+        max-width: 400px;
+        height: auto !important;
+        margin: 0 auto;
+        
+    }
+
+    .contenedor-proyectos {
+        order: -1;
+        width: 100%;
+    }
+    
+    #imagen-ampliada {
+        max-width: 85% !important;
+        max-height: 70% !important;
+        border-radius: 10px;
+        border: 2px solid white;
+    }
+
+    .cerrar-lightbox {
+        top: 30px;
+        right: 30px;
+        font-size: 45px;
+    }
+
 }
