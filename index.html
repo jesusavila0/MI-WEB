@@ -29,7 +29,7 @@
         </ul>
     </nav>
 
-    <header id="Inicio" class="portada">
+    <!-- <header id="Inicio" class="portada">
         <h1>Jesus Ávila Ventosa</h1>
         <div class="frase-bienvenida portada-redes">
             <p>Estudiante de Desarrollo de Aplicaciones Web | Futuro Programador</p>
@@ -58,15 +58,52 @@
             <li>Me gusta ir a la playa.</li>
             <li>Me gusta el mar.</li>
             </ul>   
+    </div> -->
 
-    </div>
+<header id="Inicio" class="portada-nueva">
+    <h1>Jesús Ávila Ventosa</h1>
+    <p class="tagline">Estudiante de Desarrollo de Aplicaciones Web | Futuro Programador</p>
+</header>
 
+<main class="grid-layout">
+    <section class="tarjeta tarjeta-foto">
+        <div class="circulo-foto">
+            <img src="fotosmiprimeraweb/Micara.JPG" alt="Jesús Ávila">
+        </div>
+        <h2>JESÚS ÁVILA</h2>
+    </section>
 
+    <section id="sobre-mi" class="tarjeta tarjeta-info">
+        <h3>SOBRE MÍ</h3>
+        <p>Hola, soy <strong>Jesús Ávila Ventosa</strong>, tengo 25 años y soy estudiante de desarrollo de aplicaciones web. Mi enfoque está en crear experiencias digitales con código limpio y eficiente.</p>
+        <p>Actualmente estoy expandiendo mis habilidades en este espacio para compartir mis proyectos y pasión por la tecnología.</p>
+    </section>
+</main>
 
+<main class="grid-layout">
+    <section class="tarjeta tarjeta-gustos">
+        <div class="tags-container">
+            <span class="tag">CÓDIGO</span>
+            <span class="tag">VIDEOJUEGOS</span>
+            <span class="tag">APRENDIZAJE</span>
+            <span class="tag">TECNOLOGÍA</span>
+        </div>
+    </section>
 
-
-
-
+    <section class="tarjeta-proyectos-mini">
+        <h3>PROYECTOS DESTACADOS</h3>
+        <div class="proyectos-columna">
+            
+            <a href="replica-diariocadiz.html" class="item-proyecto">
+                <img src="fotosmiprimeraweb/diario.JPG" alt="P1">
+                <div>
+                    <h4>Réplica Diario de Cádiz</h4>
+                    <p>Replica de web</p>
+                </div>
+            </a>
+        </div>
+    </section>
+</main>
 
         
  
@@ -74,8 +111,21 @@
         
        
 
+    <script>
+        window.onload = function() {
+            const contenedor = document.getElementById('contenedor-proyectos');
+            const proyectos = Array.from(contenedor.children);
+            
+            for (let i = proyectos.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [proyectos[i], proyectos[j]] = [proyectos[j], proyectos[i]];
+            }
+            
+            proyectos.forEach(proyecto => contenedor.appendChild(proyecto));
+        };
+    </script>
 
-
+    <script src="indexscript.js"></script>
 </body>
 
 </html>
