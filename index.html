@@ -67,11 +67,23 @@
 
 <main class="grid-layout">
     <section class="tarjeta tarjeta-foto">
-        <div class="circulo-foto">
+      <div class="circulo-foto flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front">
             <img src="fotosmiprimeraweb/Micara.JPG" alt="Jesús Ávila">
+            </div>
+            <div class="flip-card-back">
+            <img src="fotosmiprimeraweb/OtraFoto.JPG" alt="Jesús Reverso">
+            </div>
         </div>
-        <h2>JESÚS ÁVILA</h2>
-    </section>
+    </div>
+    <h2>JESÚS ÁVILA</h2>
+    
+    <a href="https://www.linkedin.com/in/jesús-ávila-ventosa-4a1b81401" target="_blank" class="cuadro-linkedin">
+        <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="in">
+        LinkedIn
+    </a>
+</section>
 
     <section id="sobre-mi" class="tarjeta tarjeta-info">
         <h3>SOBRE MÍ</h3>
@@ -109,7 +121,14 @@
  
         
         
-       
+    <script>
+        const card = document.querySelector('.flip-card-inner');
+
+        card.addEventListener('click', function() {
+            // Esto añade la clase 'flipped' si no está, y la quita si ya está
+            card.classList.toggle('flipped');
+        });
+    </script>
 
     <script>
         window.onload = function() {

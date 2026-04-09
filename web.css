@@ -59,6 +59,31 @@ body {
     object-fit: cover;
 }
 
+.cuadro-linkedin {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #0077b5;
+    color: white !important;
+    text-decoration: none !important;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+
+.cuadro-linkedin:hover {
+    background-color: #005582;
+    transform: translateY(-2px);
+}
+
+.cuadro-linkedin img {
+    width: 16px;
+    height: 16px;
+    filter: brightness(0) invert(1);
+}
+
 .tarjeta-info h3 {
     border-bottom: 3px solid #333;
     display: inline-block;
@@ -506,6 +531,63 @@ html {
     outline: none !important;
 }
 
+.flip-card {
+    cursor: pointer;
+    border: 3px solid #333 !important; /* Borde exterior gris */
+    border-radius: 50%;
+
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.flip-card-inner.flipped {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden; 
+    backface-visibility: hidden;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: #333!important;    
+    box-sizing: border-box;
+}
+
+.flip-card-back {
+    transform: rotateY(180deg);
+}
+
+.flip-card-back img, .flip-card-front img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* --- RESPONSIVE ADICIONAL --- */
 @media (max-width: 900px) {
     .grid-layout { grid-template-columns: 1fr; }
@@ -646,4 +728,9 @@ html {
         font-size: 45px;
     }
 
+    .cuadro-linkedin {
+        display: flex !important;
+        width: fit-content;
+        margin: 10px auto !important; /* Centra el cuadrito en el móvil */
+    }
 }
