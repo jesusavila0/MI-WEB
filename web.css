@@ -1,5 +1,9 @@
 @charset "UTF-8";
 /* CSS Document */
+html {
+    overflow-y: scroll;
+}
+
 body {
     font-family: Arial, Helvetica, sans-serif;
     margin: 0;
