@@ -307,8 +307,9 @@ body,h1 {
 
 
 
-
-
+.menu-navegacion, .menu-navegacion a, .menu-navegacion li {
+    font-family: Arial, Helvetica, sans-serif !important;
+}
 
 
 
