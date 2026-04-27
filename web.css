@@ -582,10 +582,10 @@ html {
 .mi-footer {
     width: 100%;
     padding: 30px 0;
-    margin-top: 50px; /* Espacio para que no pegue con la tarjeta de LinkedIn */
+    margin-top: 50px;
     text-align: center;
-    border-top: 1px solid #eeeeee; /* Línea sutil de separación */
-    background-color: #f9f9f9;    /* Un gris casi blanco para diferenciar la zona */
+    border-top: 1px solid #eeeeee;
+    background-color: #f9f9f9; 
 }
 
 .mi-footer p {
@@ -596,14 +596,14 @@ html {
 }
 
 .mi-footer a {
-    color: #0073b1; /* Azul corporativo de LinkedIn */
+    color: #0073b1;
     text-decoration: none;
     font-weight: 600;
     transition: color 0.3s ease;
 }
 
 .mi-footer a:hover {
-    color: #005582; /* Un azul más oscuro al pasar el ratón */
+    color: #005582; 
     text-decoration: underline;
 }
 
@@ -762,6 +762,6 @@ html {
     .cuadro-linkedin {
         display: flex !important;
         width: fit-content;
-        margin: 10px auto !important; /* Centra el cuadrito en el móvil */
+        margin: 10px auto !important;
     }
 }
