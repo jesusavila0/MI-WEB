@@ -607,7 +607,31 @@ html {
     text-decoration: underline;
 }
 
+/* Centra el bloque de contenido */
+.contenido-principal {
+    max-width: 800px;
+    margin: 0 auto; /* Centra horizontalmente */
+    padding: 20px;
+}
 
+/* Centra el texto y el bloque del footer */
+.mi-footer {
+    max-width: 800px;
+    margin: 40px auto 20px auto; /* Centra el footer y le da espacio arriba */
+    text-align: center; /* Centra el texto por dentro */
+    border-top: 1px solid #22222213; /* Una línea fina color arena para separar */
+    padding-top: 20px;
+}
+
+.mi-footer a {
+    color: #222222;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.mi-footer a:hover {
+    color: #76bdff; /* Tu color amarillo */
+}
 
 
 

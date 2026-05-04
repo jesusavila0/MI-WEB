@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bloc de Notas Pro</title>
+    <link rel="stylesheet" href="blocnotas.css">
+</head>
+<body>
+
+<!-- Botón como burbuja independiente -->
+<a href="index.html" class="burbuja-volver">
+    <span class="flecha">←</span> Inicio
+</a>
+
+<div class="contenedor">
+    <h2>📝 Mi Bloc de Notas</h2>
+    
+    <!-- Cuadro para el nombre de la nota -->
+    <input type="text" id="nombreNota" placeholder="Nombre de la nota (ej: Compra)">
+    
+    <textarea id="textoNota" placeholder="Escribe tu nota aquí..."></textarea>
+    
+    <button class="btn-guardar" onclick="gestionarGuardado()">Guardar Nota</button>
+    <p id="mensaje"></p>
+
+    <div id="listaNotasGuardadas">
+        <!-- Aquí aparecerán las 3 notas -->
+    </div>
+</div>
+
+<div class="contenido-principal">
+        </div>
+
+    <footer class="mi-footer">
+        <p>© 2026 Jesús Ávila | <a href="privacidad.html">Política de Privacidad</a></p>
+    </footer>
+
+<script>
+    const areaTexto = document.getElementById('textoNota');
+    const mensaje = document.getElementById('mensaje');
+    
+    // Al abrir, cargamos lo que haya en LocalStorage
+    window.onload = () => {
+        const notaGuardada = localStorage.getItem('miNotaPersonal');
+        if (notaGuardada) {
+            areaTexto.value = notaGuardada;
+        }
+    };
+
+    // Función para guardar
+    function guardarNota() {
+        const contenido = areaTexto.value;
+        localStorage.setItem('miNotaPersonal', contenido);
+        
+        mensaje.innerText = "✓ Nota guardada en el navegador";
+        setTimeout(() => mensaje.innerText = "", 2500);
+    }
+</script>
+    <script src="blocnotas.js"></script>
+</body>
+</html>
