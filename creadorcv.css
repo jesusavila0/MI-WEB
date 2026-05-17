@@ -1,0 +1,297 @@
+:root { --tema-color: #3498db; }
+body { font-family: 'Segoe UI', sans-serif; margin: 0; background: #1a1c22; color: white; overflow: hidden; }
+.container-main { display: flex; height: 100vh; padding: 20px; box-sizing: border-box; gap: 20px; }
+
+/* PANEL DE CONTROL */
+.form-container { width: 420px; padding: 25px; background: #23272e; overflow-y: auto; box-sizing: border-box; border-radius: 12px; overflow-x: hidden; scrollbar-width: none; -ms-overflow-style: none;}
+.input-group { margin-bottom: 20px; border-bottom: 1px solid #3e4451; padding-bottom: 15px; }
+label { display: block; font-size: 11px; color: #abb2bf; text-transform: uppercase; margin-bottom: 8px; }
+input, textarea, select { width: 100%; padding: 10px; background: #111; color: white; border: 1px solid #444; border-radius: 6px; margin-top: 5px; font-size: 14px; box-sizing: border-box; }
+input[type="color"] { height: 45px; cursor: pointer; padding: 2px; }
+.btn-add-main { width: 100%; margin-top: 10px; background: #61afef; color: #1a1c22; border: none; padding: 10px; border-radius: 6px; cursor: pointer; font-weight: bold; }
+
+/* ÁREA DE PREVISUALIZACIÓN */
+.preview-area { flex: 1; overflow-y: auto; display: flex; justify-content: center; background: #282c34; border-radius: 12px; padding: 20px; scrollbar-width: none;       
+    -ms-overflow-style: none;}
+
+/* HOJA CV - AJUSTE DE CALIDAD Y PÁGINA */
+#hoja-cv { 
+    width: 210mm; 
+    min-height: 296.5mm; 
+    background: white; 
+    background-image: linear-gradient(#ccc 2px, transparent 2px);
+    background-size: 100% 297mm;
+    padding: 20mm; 
+    color: #333; 
+    box-sizing: border-box; 
+    box-shadow: 0 0 20px rgba(0,0,0,0.5); 
+    line-height: 1.5;
+    overflow: hidden;
+    /* Suavizado de fuentes para máxima nitidez */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+.cv-layout { display: flex; gap: 40px; }
+.col-main { flex: 2; padding-top: 20px; }
+.col-side { flex: 1; display: flex; flex-direction: column; gap: 0px; }
+
+h1 { font-size: 32px; margin: 0; color: var(--tema-color); text-transform: uppercase; letter-spacing: 1px; }
+.contacto-area { font-size: 11px; color: var(--tema-color); margin-top: 10px; font-weight: bold; }
+
+.foto-container { width: 100%; margin-top: 20px; margin-bottom: 5px; border: 1px solid #f0f0f0; }
+#preview-foto { width: 100%; display: block; object-fit: cover; border-radius: 4px; }
+
+h3 { color: var(--tema-color); font-size: 15px; border-bottom: 2px solid var(--tema-color); padding-bottom: 6px; margin-top: 25px; margin-bottom: 10px; }
+.titulo-interno { font-size: 13px !important; font-weight: bold; color: #000; }
+.texto-justificado { text-align: justify; line-height: 1.5; font-size: 12px; margin-top: 5px; color: #444; }
+
+.hidden { display: none !important; }
+
+.skill-tag { 
+    display: inline-block;
+    background: #f0f0f0; 
+    color: #333; 
+    padding: 3px 9px;
+    margin: 2px;
+    border-radius: 15px; 
+    font-size: 10.5px;
+    font-weight: 600;
+    border: 1px solid #ddd;
+}
+
+.idioma-item { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    margin-bottom: 6px; 
+    font-size: 12px;
+}
+.nivel-circulos { display: flex; gap: 4px; }
+.circulo { width: 8px; height: 8px; border-radius: 50%; background: #ddd; }
+.circulo.lleno { background: var(--tema-color); }
+
+.seccion-movible { 
+    position: relative; 
+    cursor: grab; 
+    padding: 5px 0;
+    border: 1px dashed transparent;
+}
+.seccion-movible:hover { border-color: #ccc; }
+.col-side h3 { margin-top: 15px; }
+
+.seccion-movible, .experiencia-item, .categoria-skill-bloque {
+    page-break-inside: avoid;
+    break-inside: avoid;
+}
+
+.btn-eliminar {
+    position: absolute;
+    top: 5px;
+    right: 4px;
+    background: #ff4d4d;
+    color: white;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 17px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 12px;
+    display: none;
+}
+.seccion-movible:hover .btn-eliminar { display: block; }
+
+#btn-pdf {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    margin-top: 25px;
+    background: linear-gradient(135deg, #61afef 0%, #4889c7 100%);
+    color: #1a1c22;
+    border: none;
+    padding: 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(97, 175, 239, 0.25);
+}
+#btn-pdf:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(97, 175, 239, 0.4); filter: brightness(1.05); }
+#btn-pdf::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: 0.6s;
+}
+#btn-pdf:hover::after { left: 100%; }
+
+#btn-save {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    margin-top: 10px;
+    background: linear-gradient(135deg, #28a745 0%, #218838 100%);
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+}
+
+/* ... (todo lo anterior igual) ... */
+
+.container-main { display: flex; height: 100vh; padding: 20px; box-sizing: border-box; gap: 20px; }
+
+/* ESTILOS DEL SIDEBAR DE ARCHIVOS */
+.sidebar-archivos {
+    width: 250px;
+    background: #23272e;
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    border-left: 2px solid #3e4451;
+}
+
+.sidebar-archivos h3 {
+    font-size: 14px;
+    color: #61afef;
+    text-transform: uppercase;
+    margin: 0;
+    border-bottom: 1px solid #3e4451;
+    padding-bottom: 10px;
+}
+
+.archivo-item {
+    background: #2c313a;
+    padding: 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.2s;
+    border: 1px solid transparent;
+}
+
+.archivo-item:hover {
+    background: #3e4451;
+    border-color: #61afef;
+}
+
+.archivo-nombre {
+    font-size: 13px;
+    color: #abb2bf;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 140px;
+}
+
+.btn-borrar-archivo {
+    color: #e06c75;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 0 5px;
+}
+
+.btn-borrar-archivo:hover {
+    color: #ff4d4d;
+}
+
+
+.btn-limpiar {
+    background: transparent;
+    border: 1px solid #e06c75;
+    color: #e06c75;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 12px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-limpiar:hover {
+    background: #e06c75;
+    color: #1a1c22;
+    box-shadow: 0 0 15px rgba(224, 108, 117, 0.4);
+    transform: translateY(-1px);
+}
+
+.btn-limpiar span {
+    font-size: 14px;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px);
+    display: none; /* Se activa con JS */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: #282c34;
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid #3e4451;
+    text-align: center;
+    max-width: 400px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.modal-content h3 { color: #e06c75; margin-top: 0; }
+.modal-content p { color: #abb2bf; margin-bottom: 25px; }
+
+.modal-buttons { display: flex; gap: 15px; justify-content: center; }
+
+.btn-secundario {
+    background: #3e4451;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.btn-peligro {
+    background: #e06c75;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}

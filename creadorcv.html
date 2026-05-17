@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>CV Master DAW</title>
+    <link rel="icon" href="fotosmiprimeraweb/logocv.png" type="image/png">
+    <link rel="stylesheet" href="creadorcv.css">
+    <!-- Librerías externas -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
+</head>
+<body>
+
+<div class="container-main">
+    <!-- PANEL DE CONTROL (IZQUIERDA) -->
+    <div class="form-container">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; border-bottom: 1px solid #3e4451; padding-bottom: 10px;">
+            <h2 style="margin: 0; color: #61afef; font-size: 1.2rem;">Maestro de CVs</h2>
+            <button onclick="limpiarFormulario()" class="btn-limpiar">
+                <span>✨</span> Limpiar CVs
+            </button>
+        </div>
+        
+        <div class="input-group">
+            <label>Personalización:</label>
+            <input type="text" id="comandoEstilo" placeholder="Comando (daw, web, retro...)" oninput="actualizarCV()">
+            <input type="color" id="colorPersonalizado" value="#3498db" oninput="actualizarCV()">
+            <select id="fuentePersonalizada" onchange="actualizarCV()">
+                <option value="default">Fuente por defecto</option>
+                <option value="'Segoe UI', sans-serif">Sans Serif</option>
+                <option value="'Consolas', monospace">Monospace</option>
+            </select>
+        </div>
+
+        <div class="input-group">
+            <label>Sobre mí y Contacto:</label>
+            <input type="text" id="nombre" placeholder="Nombre" oninput="actualizarCV()">
+            <textarea id="resumen" placeholder="Descripción profesional... ``palabras entre comillas se pone en negrita``" oninput="actualizarCV()"></textarea>
+            <input type="text" id="email" placeholder="Email" oninput="actualizarCV()">
+            <input type="text" id="ubicacion" placeholder="Ciudad, País (ej: Madrid, España)" oninput="actualizarCV()">
+            <input type="text" id="telefono" placeholder="Teléfono" oninput="actualizarCV()">
+            <input type="file" onchange="leerFoto(this)" style="margin-top: 10px;">
+        </div>
+
+        <div class="input-group">
+            <label>Formación:</label>
+            <input type="text" id="titulo-estudios" placeholder="Título" oninput="actualizarCV()">
+            <textarea id="desc-estudios" placeholder="Descripción de la formación..." oninput="actualizarCV()"></textarea>
+            <input type="text" id="inicio-estudios" placeholder="Inicio" oninput="actualizarCV()">
+            <input type="text" id="fin-estudios" placeholder="Fin" oninput="actualizarCV()">
+        </div>
+
+        <div class="input-group">
+            <label>Idiomas:</label>
+            <input type="text" id="nombre-idioma" placeholder="Idioma">
+            <select id="nivel-idioma">
+                <option value="1">Bajo (1)</option>
+                <option value="2">Medio (2)</option>
+                <option value="3">Alto (3)</option>
+            </select>
+            <button onclick="añadirIdioma()" class="btn-add-main">+ Añadir Idioma</button>
+        </div>
+
+        <div class="input-group">
+            <label>Experiencia / Proyectos:</label>
+            <input type="text" id="exp-titulo" placeholder="Nombre del Proyecto">
+            <input type="text" id="exp-empresa" placeholder="Empresa o Cliente (Opcional)">
+            <textarea id="exp-descripcion" placeholder="Descripción de lo que hiciste..."></textarea>
+    
+            <!-- CAMBIO AQUÍ: El ID debe ser exp-url -->
+            <label style="font-size: 10px; margin-top: 10px;">Enlace del Proyecto (URL)</label>
+            <input type="url" id="exp-url" placeholder="https://github.com/..." oninput="actualizarCV()">
+    
+            <div class="fecha-grid" style="margin-top: 10px;">
+                <input type="text" id="exp-inicio" placeholder="Inicio (ej: 2023)">
+                <input type="text" id="exp-fin" placeholder="Fin (ej: Actualidad)">
+            </div>
+    
+            <button onclick="añadirExperiencia()" class="btn-add-main" style="margin-top: 15px;">+ Añadir Proyecto</button>
+        </div>
+
+        <div class="input-group">
+            <label>Habilidades:</label>
+            <input type="text" id="skill-categoria-input" placeholder="Categoría">
+            <input type="text" id="skill-nombres-input" placeholder="Skills (separadas por comas)">
+            <button onclick="añadirCategoriaSkill()" class="btn-add-main">+ Añadir Categoría</button>
+        </div>
+
+        <div class="input-group">
+            <label>Otros:</label>
+            <textarea id="licencias" placeholder="Licencias..." oninput="actualizarCV()"></textarea>
+            <div style="display: flex; gap: 10px; margin-top: 10px;">
+                <input type="text" id="curso-nombre" placeholder="Nombre del curso">
+                <input type="text" id="curso-anio" placeholder="Año" style="width: 100px;">
+            </div>
+            <button onclick="añadirCurso()" class="btn-add-main" style="margin-top: 5px;">+ Añadir Curso</button>
+        </div>
+
+        <button id="btn-pdf" onclick="generarPDF()">📥 Descargar PDF</button>
+        <button id="btn-save" onclick="guardarEnLocalStorage()">💾 Guardar Progreso</button>
+    </div>
+
+    <!-- ÁREA DE PREVISUALIZACIÓN (DERECHA) -->
+    <div class="preview-area">
+        <div id="hoja-cv">
+            <div class="cv-layout">
+                
+                <!-- COLUMNA PRINCIPAL -->
+                <div class="col-main">
+                    <h1 id="preview-nombre">Tu Nombre</h1>
+
+                    <div id="sortable-container">
+                        <div class="seccion-movible hidden" data-id="resumen">
+                            <span class="btn-eliminar" onclick="eliminarSeccion(this)">×</span>
+                            <h3 id="preview-titulo-sobremi">Sobre mí</h3>
+                            <p id="preview-resumen" class="texto-justificado"></p>
+                            <div id="preview-contacto" class="contacto-area" style="margin-top: 10px; border-top: 1px solid #eee; padding-top: 10px;"></div>
+                        </div>
+                        
+                        <!-- EDUCACIÓN -->
+                        <div class="seccion-movible hidden" data-id="estudios">
+                            <span class="btn-eliminar" onclick="eliminarSeccion(this)">×</span>
+                            <h3>Educación</h3>
+                            <p id="preview-estudios" class="texto-justificado"></p>
+                        </div>
+
+                        <!-- EXPERIENCIA -->
+                        <div class="seccion-movible hidden" data-id="exp">
+                            <span class="btn-eliminar" onclick="eliminarSeccion(this)">×</span>
+                            <h3>Experiencia & Proyectos</h3>
+                            <div id="preview-exp-lista"></div>
+                        </div>
+
+                        <!-- CURSOS -->
+                        <div class="seccion-movible hidden" data-id="cursos">
+                            <span class="btn-eliminar" onclick="eliminarSeccion(this)">×</span>
+                            <h3>Cursos</h3>
+                            <p id="preview-cursos" class="texto-justificado"></p>
+                        </div>
+
+                        <!-- IDIOMAS -->
+                        <div class="seccion-movible hidden" data-id="idiomas">
+                            <span class="btn-eliminar" onclick="eliminarSeccion(this)">×</span>
+                            <h3>Idiomas</h3>
+                            <div id="preview-idiomas"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- COLUMNA LATERAL -->
+                <div class="col-side" id="sortable-side">
+                    <div class="foto-container">
+                        <img id="preview-foto" src="" style="display:none;">
+                    </div>
+                    
+                    <div class="seccion-movible hidden" data-id="licencias">
+                        <span class="btn-eliminar" onclick="eliminarSeccion(this)">×</span>
+                        <h3>Licencias</h3>
+                        <p id="preview-licencias" class="texto-justificado"></p>
+                    </div>
+
+                    <!-- SKILLS -->
+                    <div class="seccion-movible hidden" data-id="skills">
+                        <span class="btn-eliminar" onclick="eliminarSeccion(this)">×</span>
+                        <h3>Skills</h3>
+                        <div id="preview-skills"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="sidebar-archivos">
+        <h3>Mis Archivos</h3>
+        <div id="lista-archivos-guardados">
+            <p style="font-size: 12px; color: #666;">No hay archivos.</p>
+        </div>
+    </div>
+</div>
+
+<!-- Modal de Confirmación Personalizado -->
+<div id="custom-modal" class="modal-overlay">
+    <div class="modal-content">
+        <h3 id="modal-title">Confirmación</h3>
+        <p id="modal-message">¿Estás seguro de realizar esta acción?</p>
+        <div class="modal-buttons">
+            <button id="modal-cancel" class="btn-secundario">Cancelar</button>
+            <button id="modal-confirm" class="btn-peligro">Confirmar</button>
+        </div>
+    </div>
+</div>
+
+<script src="creadorcv.js"></script>
+</body>
+</html>
